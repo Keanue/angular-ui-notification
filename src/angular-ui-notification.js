@@ -54,7 +54,7 @@ angular.module('ui-notification').provider('Notification', function() {
             args.container = args.container ? args.container : options.container;
 
             $http.get(args.template,{cache: $templateCache}).then(function(template) {
-
+                template = template.data;
                 var scope = args.scope.$new();
                 scope.message = $sce.trustAsHtml(args.message);
                 scope.title = $sce.trustAsHtml(args.title);
